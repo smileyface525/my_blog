@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+  pool: 5
+
+development:
+  <<: *default
+  database: smiley_blog_development
+
+
+test:
+  <<: *default
+  database: smiley_blog_test
+
+
+production:
+  <<: *default
+  database: smiley_blog_production
+  username: smiley_blog
+  password: <%= ENV['SMILEY_BLOG_DATABASE_PASSWORD'] %>
